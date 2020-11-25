@@ -4,7 +4,6 @@ import Aside from './../include/sidebar'
 
 import { list, read, update } from './../api/api-users';
 import momemt from 'moment'
-import swal from 'sweetalert';
 
 import auth from './../auth/auth-helper';
 import moment from 'moment'
@@ -66,7 +65,7 @@ class Dashbaord extends Component {
         if (auth.isAuthenticated()) {
             list().then((data) => {
                 if (data.error) {
-                    swal(data.error)
+                    alert(data.error)
                 } else {
                     let suspendC = data.filter(item => item.suspend == true)
                     let approveC = data.filter(item => item.approve == true)
@@ -236,7 +235,7 @@ class User extends Component {
                 userId: id
             }, { t: token }).then((data) => {
                 if (data.error) {
-                    swal(data.error)
+                    alert(data.error)
                     this.setState({ userData: { ...data }, loading: true })
                 } else {
                     this.setState({ userData: { ...data }, loading: true })
@@ -282,7 +281,7 @@ class User extends Component {
                 t: token
             }, user).then((data) => {
                 if (data.error) {
-                    swal(data.error);
+                    alert(data.error);
                 } else {
                     this.readUser(this.state._id)
 

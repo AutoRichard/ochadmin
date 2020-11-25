@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './../include/header'
 import Aside from './../include/sidebar'
 import { read, update } from './../api/api-user';
-import swal from 'sweetalert';
 
 import auth from './../auth/auth-helper';
 
@@ -96,7 +95,7 @@ class EditProfile extends Component {
                     if (data.error) {
                         //this.setState({ error: data.error })
                         //this.setState({ loading: false });
-                        swal(data.error)
+                        alert(data.error)
                     } else {
                         window.location = '/profile'
                     }
