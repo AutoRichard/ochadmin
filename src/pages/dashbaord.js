@@ -308,7 +308,7 @@ class User extends Component {
                         <div className="signup-box">
                             <div className="card">
                                 <div className="body">
-                                    <span><img src={'https://ochbackend.herokuapp.com/api/usersPhoto/' + this.state.userData._id} style={{ width: '100%', height: '300px' }} /></span>
+                                    <span><img src={'https://ochback.herokuapp.com/api/usersPhoto/' + this.state.userData._id} style={{ width: '100%', height: '300px' }} /></span>
                                     <b>Display Name</b> : <span>{this.state.userData.displayName}</span><br />
                                     <b>Account Status</b> : <span>{this.state.userData.suspend == true ? 'Account Suspended' : 'Account Active'}</span><br />
                                     <b>Approve Status</b> : <span>{this.state.userData.approve == true ? 'Active' : 'Inactive'}</span><br />

@@ -241,7 +241,7 @@ class _News extends Component {
                         <div className="signup-box">
                             <div className="card">
                                 <div className="body">
-                                    <span><img src={'https://ochbackend.herokuapp.com/api/newsPhoto/' + this.state.newsData._id} style={{ width: '100%', height: '300px' }} /></span>
+                                    <span><img src={'https://ochback.herokuapp.com/api/newsPhoto/' + this.state.newsData._id} style={{ width: '100%', height: '300px' }} /></span>
                                     <b>Title</b> : <span>{this.state.newsData.title}</span><br />
                                     <b>Link</b> : <a target="_blank" href={this.state.newsData.mediaLink} className="btn btn-primary">View Link</a><br />
                                     <b>Joined</b> : <span>{moment(this.state.newsData.created).fromNow()}</span><br />
