@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
+import { signout } from './../auth/api-auth';
+import auth from './../auth/auth-helper';
 
 import ProfileImage from './../images/user.png'
 
 class Aside extends Component {
+
+    signout = () => {
+        signout().then((data) => {
+            if (data.error) {
+                alert(data.error)
+            } else {
+
+                auth.signout(() => window.location = '/')
+            }
+        });
+    }
+
     render() {
         return (
             <section>
@@ -21,7 +35,7 @@ class Aside extends Component {
                                     <li role="separator" className="divider"></li>
 
                                     <li role="separator" className="divider"></li>
-                                    <li><a><i className="material-icons">input</i>Sign Out</a></li>
+                                    <li><a href="javascript:void(0)" onClick={this.signout}><i className="material-icons">input</i>Sign Out</a></li>
                                 </ul>
                             </div>
                         </div>
