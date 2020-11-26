@@ -41,6 +41,18 @@ class Aside extends Component {
                                     <span>Manage User</span>
                                 </a>
                             </li>
+                            <li className="active">
+                                <a href="/news">
+                                    <i className="material-icons">assignment</i>
+                                    <span>News</span>
+                                </a>
+                            </li>
+                            <li className="active">
+                                <a href="/upload-news">
+                                    <i className="material-icons">assignment_returned</i>
+                                    <span>Upload News</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </aside>

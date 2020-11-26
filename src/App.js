@@ -12,6 +12,8 @@ import EditProfile from './pages/editprofile';
 import Profile from './pages/profile';
 import PrivateRoute from './auth/PrivateRoute';
 import AuthRoute from './auth/AuthRoute';
+import News from './pages/news';
+import UploadNews from './pages/uploadNews'
 
 
 
@@ -21,10 +23,11 @@ export default function BasicExample() {
       <div>
         <Switch>
           <AuthRoute exact path="/" component={Login} />
-          <PrivateRoute path="/dashboard" exact component={Dashboard} />
-          <PrivateRoute path="/profile" exact component={Profile} />
-          <PrivateRoute path="/edit-profile" exact component={EditProfile} />
-          {/*<Route path="/dashboard" component={Dashboard} />*/}
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/edit-profile" component={EditProfile} />          
+          <PrivateRoute path="/news" component={News} />
+          <PrivateRoute path="/upload-news" component={UploadNews} />
         </Switch>
       </div>
     </Router>

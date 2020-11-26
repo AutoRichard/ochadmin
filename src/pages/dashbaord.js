@@ -3,10 +3,9 @@ import Header from './../include/header'
 import Aside from './../include/sidebar'
 
 import { list, read, update } from './../api/api-users';
-import momemt from 'moment'
+import moment from 'moment'
 
 import auth from './../auth/auth-helper';
-import moment from 'moment'
 import $ from 'jquery'
 
 
@@ -38,7 +37,7 @@ class Users extends Component {
                 <td>{this.state.index}</td>
                 <td>{this.state.displayName}</td>
                 <td>{this.state.email}</td>
-                <td>{momemt(this.state.created).fromNow()}</td>
+                <td>{moment(this.state.created).fromNow()}</td>
                 <td><a href="#unique-data" onClick={this.viewUser} className="btn btn-primary">View User</a></td>
             </tr>
         );
@@ -83,7 +82,7 @@ class Dashbaord extends Component {
         this.setState({
             _id: id, view: true
         });
-    }
+    } 
 
     componentDidMount() {
         this.readUsers();
