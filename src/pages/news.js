@@ -36,7 +36,7 @@ class Content extends Component {
                 <td>{this.state.text}</td>
                 <td>{this.state.mediaLink}</td>
                 <td>{moment(this.state.created).fromNow()}</td>
-                <td><a href="#unique-data" onClick={this.viewNews} className="btn btn-primary">View User</a></td>
+                <td><a href="#unique-data" onClick={this.viewNews} className="btn btn-primary">View News</a></td>
             </tr>
         );
     }

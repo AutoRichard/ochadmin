@@ -38,7 +38,7 @@ class Messages extends Component {
                 <td>{this.state.name}</td>
                 <td>{this.state.email}</td>
                 <td>{moment(this.state.created).fromNow()}</td>
-                <td><a href="#unique-data" onClick={this.viewC} className="btn btn-primary">View User</a></td>
+                <td><a href="#unique-data" onClick={this.viewC} className="btn btn-primary">View Message</a></td>
             </tr>
         );
     }
