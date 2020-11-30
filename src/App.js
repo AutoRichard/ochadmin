@@ -14,6 +14,7 @@ import PrivateRoute from './auth/PrivateRoute';
 import AuthRoute from './auth/AuthRoute';
 import News from './pages/news';
 import UploadNews from './pages/uploadNews'
+import Contact from './pages/contact'
 
 
 
@@ -28,6 +29,7 @@ export default function BasicExample() {
           <PrivateRoute path="/edit-profile" component={EditProfile} />          
           <PrivateRoute path="/news" component={News} />
           <PrivateRoute path="/upload-news" component={UploadNews} />
+          <PrivateRoute path="/contact" component={Contact} />
         </Switch>
       </div>
     </Router>

@@ -67,6 +67,12 @@ class Aside extends Component {
                                     <span>Upload News</span>
                                 </a>
                             </li>
+                            <li className="active">
+                                <a href="/contact">
+                                    <i className="material-icons">perm_phone_msg</i>
+                                    <span>Contact Us</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </aside>
