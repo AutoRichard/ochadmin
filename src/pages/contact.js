@@ -205,7 +205,7 @@ class Message extends Component {
                     <div className="block-header">
                         <button id="hide_plantation" onClick={this.closePanel} className="btn btn-primary btn-lg waves-effect">Close</button>
                     </div>
-                    <div className="row col-md-9">
+                    <div className="row col-md-6 col-lg-6 col-sm-6">
                         <div className="signup-box">
                             <div className="card">
                                 <div className="body">
