@@ -15,6 +15,7 @@ import AuthRoute from './auth/AuthRoute';
 import News from './pages/news';
 import UploadNews from './pages/uploadNews'
 import Contact from './pages/contact'
+import Newsletter from './pages/newsletter'
 
 
 
@@ -30,6 +31,7 @@ export default function BasicExample() {
           <PrivateRoute path="/news" component={News} />
           <PrivateRoute path="/upload-news" component={UploadNews} />
           <PrivateRoute path="/contact" component={Contact} />
+          <PrivateRoute path="/newsletter" component={Newsletter} />
         </Switch>
       </div>
     </Router>
