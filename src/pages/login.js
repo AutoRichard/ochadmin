@@ -63,7 +63,7 @@ class Login extends Component {
     }
 
 
-    render() {
+    render() { 
         return (
             <div className="login-box">
                 <div className="logo">
