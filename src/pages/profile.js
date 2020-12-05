@@ -31,7 +31,7 @@ class Profile extends Component {
                     alert(data.error)
                 } else {
                     console.log(data)
-                    this.setState({'displayName': data.displayName, 'email': data.email });
+                    this.setState({'displayName': data.displayName, 'username': data.username });
                 }
             });
         }
@@ -69,8 +69,8 @@ class Profile extends Component {
                                             <span>{this.state.displayName}</span>
                                         </li>
                                         <li>
-                                            <span>Email</span>
-                                            <span>{this.state.email}</span>
+                                            <span>Username</span>
+                                            <span>{this.state.username}</span>
                                         </li>
 
                                     </ul>

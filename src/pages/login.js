@@ -8,9 +8,9 @@ class Login extends Component {
         super(props);
 
         this.state = {
-            email: '',
+            username: '',
             password: '',
-            emailValidate: '',
+            usernameValidate: '',
             passwordValidate: '',
             loading: false
         };
@@ -25,20 +25,20 @@ class Login extends Component {
         this.setState({
             [event.target.name]: event.target.value
         });
-        event.target.name == 'email' ? this.setState({ emailValidate: '' }) : '';
+        event.target.name == 'username' ? this.setState({ usernameValidate: '' }) : '';
         event.target.name == 'password' ? this.setState({ passwordValidate: '' }) : '';
     }
 
     signIn = () => {
         this.setState({ loading: true });
-        if (this.state.email === '' || this.state.password === '') {
+        if (this.state.username === '' || this.state.password === '') {
             this.setState({ loading: false });
-            this.state.email === '' ? this.setState({ emailValidate: 'Email is required' }) : this.setState({ emailValidate: '' });
+            this.state.username === '' ? this.setState({ usernameValidate: 'Username is required' }) : this.setState({ usernameValidate: '' });
             this.state.password === '' ? this.setState({ passwordValidate: 'Password is required' }) : this.setState({ passwordValidate: '' });
 
         } else {
             const user = {
-                email: this.state.email,
+                username: this.state.username,
                 password: this.state.password
             }
 
@@ -47,6 +47,7 @@ class Login extends Component {
                     //this.setState({ error: data.error })
                     this.setState({ loading: false });
                     alert(data.error)
+                    console.log(data.error)
                 } else {
                     auth.authenticate(data, () => {
                         window.location = '/'
@@ -78,10 +79,10 @@ class Login extends Component {
                                 <i className="material-icons">person</i>
                             </span>
                             <div className="form-line">
-                                <input type="email" onChange={this.onChange} className="form-control" name="email" placeholder="Email address" />
+                                <input type="username" onChange={this.onChange} className="form-control" name="username" placeholder="Username" />
 
                                 <span className="help-block">
-                                    <strong style={{ color: 'red' }}>{this.state.emailValidate}</strong>
+                                    <strong style={{ color: 'red' }}>{this.state.usernameValidate}</strong>
                                 </span>
 
                             </div>

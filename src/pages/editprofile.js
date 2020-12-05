@@ -12,8 +12,8 @@ class EditProfile extends Component {
         this.state = {
             displayName: '',
             displayNameValidation: '',
-            email: '',
-            emailValidation: '',
+            username: '',
+            usernameValidation: '',
             password: '',
             passwordValidation: ''
         }
@@ -33,7 +33,7 @@ class EditProfile extends Component {
                     alert(data.error)
                 } else {
                     console.log(data)
-                    this.setState({ 'displayName': data.displayName, 'email': data.email });
+                    this.setState({ 'displayName': data.displayName, 'username': data.username });
                 }
             });
         }
@@ -49,7 +49,7 @@ class EditProfile extends Component {
         this.setState({
             [event.target.name]: event.target.value
         });
-        event.target.name == 'email' ? this.setState({ emailValidation: '' }) : '';
+        event.target.name == 'username' ? this.setState({ usernameValidation: '' }) : '';
         event.target.name == 'password' ? this.setState({ passwordValidation: '' }) : '';
         event.target.name == 'displayName' ? this.setState({ displayNameValidation: '' }) : '';
 
@@ -57,11 +57,15 @@ class EditProfile extends Component {
 
     updateAdmin = () => {
         //this.setState({ loading: true });
-        if (this.state.email === '' || this.state.displayName === '') {
+        if (this.state.username === '' || this.state.displayName === '') {
+
+            
             //this.setState({ loading: false });
-            this.state.email === '' ? this.setState({ emailValidation: 'Email is required' }) : this.setState({ emailValidation: '' });
+            this.state.username === '' ? this.setState({ usernameValidation: 'Username is required' }) : this.setState({ usernameValidation: '' });
             //this.state.password === '' ? this.setState({ passwordValidation: 'Password is required' }) : this.setState({ passwordValidation: '' });
-            this.state.displayNameValidation === '' ? this.setState({ displayNameValidation: 'Password is required' }) : this.setState({ displayNameValidation: '' });
+            this.state.displayNameValidation === '' ? this.setState({ displayNameValidation: 'Display Name is required' }) : this.setState({ displayNameValidation: '' });
+
+            
 
         } else {
 
@@ -75,12 +79,12 @@ class EditProfile extends Component {
 
                 if (this.state.password === '') {
                     user = {
-                        email: this.state.email,
+                        username: this.state.username,
                         displayName: this.state.displayName
                     }
                 } else {
                     user = {
-                        email: this.state.email,
+                        username: this.state.username,
                         password: this.state.password,
                         displayName: this.state.displayName
                     }
@@ -95,6 +99,7 @@ class EditProfile extends Component {
                     if (data.error) {
                         //this.setState({ error: data.error })
                         //this.setState({ loading: false });
+                        console.log(data)
                         alert(data.error)
                     } else {
                         window.location = '/profile'
@@ -134,9 +139,9 @@ class EditProfile extends Component {
                                                 <i className="fa fa-envelope"></i>
                                             </span>
                                             <div className="form-line">
-                                                <input type="email" className="form-control" onChange={this.onChange} value={this.state.email} name="email" placeholder="Email Address" />
+                                                <input type="text" className="form-control" onChange={this.onChange} value={this.state.username} name="username" placeholder="Enter Username" />
                                                 <span className="help-block">
-                                                    <strong style={{ color: 'red' }}>{this.state.emailValidation}</strong>
+                                                    <strong style={{ color: 'red' }}>{this.state.usernameValidation}</strong>
                                                 </span>
                                             </div>
                                         </div>
