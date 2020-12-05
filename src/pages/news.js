@@ -66,6 +66,8 @@ class News extends Component {
                     this.setState({
                         news: data,
                     })
+
+
                 }
             });
         }
@@ -81,7 +83,7 @@ class News extends Component {
         });
     }
 
-    closeUserPanel = () => {
+    closeNewsPanel = () => {
         this.setState({
             view: false
         })
@@ -130,7 +132,7 @@ class News extends Component {
                                         <tbody>
                                             {this.state.news.map((el, i) =>
                                                 <Content
-                                                    created={el.created}
+                                                    created={el.createDate}
                                                     data={el}
                                                     index={i + 1}
                                                     key={el._id}
@@ -180,6 +182,7 @@ class _News extends Component {
             this.setState({ _id: this.props._id })
 
             this.readNews(this.props._id)
+
         }
     }
 
@@ -192,7 +195,7 @@ class _News extends Component {
                 } else {
                     this.setState({ newsData: { ...data }, loading: true })
 
-                    console.log(data)
+
                 }
             })
         }
@@ -244,7 +247,7 @@ class _News extends Component {
                                     <span><img src={'https://ochback.herokuapp.com/api/newsPhoto/' + this.state.newsData._id} style={{ width: '100%', height: '300px' }} /></span>
                                     <b>Title</b> : <span>{this.state.newsData.title}</span><br />
                                     <b>Link</b> : <a target="_blank" href={this.state.newsData.mediaLink} className="btn btn-primary">View Link</a><br />
-                                    <b>Joined</b> : <span>{moment(this.state.newsData.created).fromNow()}</span><br />
+                                    <b>Joined</b> : <span>{moment(this.state.newsData.createDate).fromNow()}</span><br />
                                     <b>Content</b> :<br />
                                     <span>{this.state.newsData.text}</span><br /><br />
 

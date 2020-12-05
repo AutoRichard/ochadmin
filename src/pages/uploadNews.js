@@ -40,7 +40,7 @@ class UploadNews extends Component {
             : event.target.value
 
         this.linkData.set(event.target.name, value)
-        this.setState({ photo: URL.createObjectURL(event.target.files[0]) });
+        this.setState({ photo: URL.createObjectURL(event.target.files[0]) }); 
     }
 
     onSubmit = () => {
@@ -134,7 +134,7 @@ class UploadNews extends Component {
                                             </span>
                                             <div className="form-line">
                                                 <div className="form-line">
-                                                    <textarea name="text" value={this.state.text} onChange={this.onChangeInput} className="new_content ckeditor" rows="4" className="form-control no-resize" placeholder="Enter Plantation Description"></textarea>
+                                                    <textarea name="text" value={this.state.text} onChange={this.onChangeInput} className="new_content ckeditor" rows="4" className="form-control no-resize" placeholder="Enter News"></textarea>
                                                 </div>
                                             </div>
                                         </div>
