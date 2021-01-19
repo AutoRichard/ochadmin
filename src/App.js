@@ -16,6 +16,8 @@ import News from './pages/news';
 import UploadNews from './pages/uploadNews'
 import Contact from './pages/contact'
 import Newsletter from './pages/newsletter'
+import Instructor from './pages/instructor'
+import Instruct from './pages/instruct'
 
 
 
@@ -27,11 +29,13 @@ export default function BasicExample() {
           <AuthRoute exact path="/" component={Login} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/edit-profile" component={EditProfile} />          
+          <PrivateRoute path="/edit-profile" component={EditProfile} />
           <PrivateRoute path="/news" component={News} />
           <PrivateRoute path="/upload-news" component={UploadNews} />
           <PrivateRoute path="/contact" component={Contact} />
           <PrivateRoute path="/newsletter" component={Newsletter} />
+          <PrivateRoute path="/instructor" component={Instructor} />
+          <PrivateRoute path="/instruct" component={Instruct} />
         </Switch>
       </div>
     </Router>

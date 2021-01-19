@@ -79,6 +79,12 @@ class Aside extends Component {
                                     <span>Newletter</span>
                                 </a>
                             </li>
+                            <li className="active">
+                                <a href="/instructor">
+                                    <i className="material-icons">follow_the_signs</i>
+                                    <span>Instructor</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </aside>
