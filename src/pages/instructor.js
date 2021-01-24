@@ -380,6 +380,31 @@ class MyCalendar extends Component {
 
         if (title, link) {
 
+            /*let d = new Date(start)
+
+            let timeZone = d.getTimezoneOffset() / 60
+
+            let c = new Date(d.setHours(d.getHours() + timeZone))
+            let month = d.getMonth() + 1
+            let DayOfMonth = d.getDate();
+            let Year = d.getFullYear();
+            let Hours = d.getHours();
+            let Minutes = d.getMinutes();
+            let start_time = Year + '-' + month + '-' + DayOfMonth + 'T' + Hours + ':' + Minutes
+
+
+            let b = new Date(end)
+
+            let timeZoneB = b.getTimezoneOffset() / 60
+
+            let e = new Date(b.setHours(b.getHours() + timeZoneB))
+            let monthB = b.getMonth() + 1
+            let DayOfMonthB = b.getDate();
+            let YearB = b.getFullYear();
+            let HoursB = b.getHours();
+            let MinutesB = b.getMinutes();
+            let end_time = YearB + '-' + monthB + '-' + DayOfMonthB + 'T' + HoursB + ':' + MinutesB*/
+
             let event = {
                 title: title,
                 link: link,

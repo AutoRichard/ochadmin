@@ -31,20 +31,17 @@ const update = (credentials, formData, id) => {
 
 const updateEvent = (credentials, data, id) => {
     return fetch(link + '/api/instructorevent/' + id, {
-      method: 'PUT',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + credentials.t
-      },
-      body: JSON.stringify(data)
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + credentials.t
+        },
+        body: JSON.stringify(data)
     }).then((response) => {
-      return response.json()
+        return response.json()
     }).catch((err) => console.log(err))
-  }
-
-
-
+}
 
 const listById = (id) => {
     return fetch(link + '/api/instructor/' + id, {
@@ -54,8 +51,13 @@ const listById = (id) => {
     }).catch((err) => console.log(err))
 }
 
-
-
+const listEvent = () => {
+    return fetch(link + '/api/listevent', {
+        method: 'GET',
+    }).then(response => {
+        return response.json()
+    }).catch((err) => console.log(err))
+}
 
 const listInstructor = () => {
     return fetch(link + '/api/instructor', {
@@ -84,5 +86,6 @@ export {
     listInstructor,
     remove,
     update,
-    updateEvent
+    updateEvent,
+    listEvent,
 } 

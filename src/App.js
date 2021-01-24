@@ -18,6 +18,7 @@ import Contact from './pages/contact'
 import Newsletter from './pages/newsletter'
 import Instructor from './pages/instructor'
 import Instruct from './pages/instruct'
+import BookedEvent from './pages/bookedevent'
 
 
 
@@ -36,6 +37,7 @@ export default function BasicExample() {
           <PrivateRoute path="/newsletter" component={Newsletter} />
           <PrivateRoute path="/instructor" component={Instructor} />
           <PrivateRoute path="/instruct" component={Instruct} />
+          <PrivateRoute path="/event" component={BookedEvent} />
         </Switch>
       </div>
     </Router>
