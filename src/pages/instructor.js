@@ -15,7 +15,7 @@ import swal from 'sweetalert'
 // to the correct localizer.
 const localizer = momentLocalizer(moment) // or globalizeLocalizer
 
-
+ 
 
 
 
@@ -374,9 +374,9 @@ class MyCalendar extends Component {
 
     handleSelect = ({ start, end }) => {
         const title = window.prompt('New Event name')
-        const link = window.prompt('Zoom link')
+       // const link = window.prompt('Zoom link')
 
-        if (title, link) {
+        if (title) {
 
             /*let d = new Date(start)
 
@@ -405,7 +405,6 @@ class MyCalendar extends Component {
 
             let event = {
                 title: title,
-                link: link,
                 start: start,
                 end: end
             }
@@ -430,8 +429,7 @@ class MyCalendar extends Component {
                     {
                         start,
                         end,
-                        title,
-                        link
+                        title
                     },
                 ],
             })
