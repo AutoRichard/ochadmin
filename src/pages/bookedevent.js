@@ -51,6 +51,7 @@ class Content extends Component {
                 <td>{this.state.data.name}</td>
                 <td>{this.state.data.pricing}</td>
                 <td>{moment(this.state.data.event.start).format("YYYY-MM-DD HH:mm")}</td>
+                <td>{this.state.data.event.password}</td>
                 <td><a href={this.state.data.event.link} className="btn btn-primary" target="_blank">Zoom link</a></td>
                 <td><a onClick={this.readUser} className="btn btn-success">View User</a></td>
             </tr>
@@ -120,6 +121,7 @@ class BookedEvent extends Component {
                                                 <th>Instructor</th>
                                                 <th>Amount Charged</th>
                                                 <th>Event Start Time</th>
+                                                <th>Passcode</th>
                                                 <th>Event Link</th>
                                                 <th>Action</th>
                                             </tr>
