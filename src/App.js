@@ -19,6 +19,9 @@ import Newsletter from './pages/newsletter'
 import Instructor from './pages/instructor'
 import Instruct from './pages/instruct'
 import BookedEvent from './pages/bookedevent'
+import Session from './pages/session'
+import NewSession from './pages/newsession'
+import JoinSession from './pages/joinsession'
 
 
 
@@ -38,6 +41,9 @@ export default function BasicExample() {
           <PrivateRoute path="/instructor" component={Instructor} />
           <PrivateRoute path="/instruct" component={Instruct} />
           <PrivateRoute path="/event" component={BookedEvent} />
+          <PrivateRoute path="/session" component={Session} />
+          <PrivateRoute path="/newsession" component={NewSession} />
+          <PrivateRoute path="/joinsession/:id" component={JoinSession} />
         </Switch>
       </div>
     </Router>

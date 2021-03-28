@@ -91,6 +91,12 @@ class Aside extends Component {
                                     <span>Instructor Booked Event</span>
                                 </a>
                             </li>
+                            <li className="active">
+                                <a href="/session">
+                                    <i className="material-icons">sip</i>
+                                    <span>Session</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </aside>

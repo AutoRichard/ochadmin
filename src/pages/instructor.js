@@ -190,7 +190,6 @@ class EditInstructor extends Component {
             const jwt = auth.isAuthenticated();
             const token = jwt.token;
 
-            console.log(this.props._id)
             listById(this.props._id).then((data) => {
                 if (data.error) {
                     alert(data.error)
@@ -444,8 +443,7 @@ class MyCalendar extends Component {
         if (auth.isAuthenticated()) {
             const jwt = auth.isAuthenticated();
             const token = jwt.token;
-
-            console.log(this.props._id)
+            
             listById(this.props._id).then((data) => {
                 if (data.error) {
                     alert(data.error)
