@@ -187,7 +187,7 @@ class NewSession extends Component {
                                                 <i className="fa fa-user"></i>
                                             </span>
                                             <div className="form-line">
-                                                <input type="number" name="duration" value={this.state.duration} onChange={this.onChangeInput} className="form-control" placeholder="Enter Session Duration" />
+                                                <input type="number" name="duration" value={this.state.duration} onChange={this.onChangeInput} className="form-control" placeholder="Enter Session Duration In Minutes" />
                                             </div>
                                         </div>
 
