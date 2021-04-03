@@ -31,6 +31,7 @@ class Content extends Component {
                 <td>{this.state.data.session_id.title}</td>
                 <td>{this.state.data.user_id.firstName}</td>
                 <td>{this.state.data.session_id.link}</td>
+                <td>{this.state.data.user_id.email}</td>
                 <td>{moment(parseInt(this.state.data.created_date)).fromNow()}</td>
             </tr>
         );
@@ -102,6 +103,7 @@ class JoinSession extends Component {
                                                 <th>Title</th>
                                                 <th>User</th>
                                                 <th>Link</th>
+                                                <th>Email</th>
                                                 <th>Created at</th>
                                             </tr>
                                         </thead>

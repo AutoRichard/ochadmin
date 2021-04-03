@@ -3,6 +3,7 @@ import auth from './../auth/auth-helper';
 import Header from './../include/header'
 import Aside from './../include/sidebar'
 import { create } from './../api/api-session';
+import swal from 'sweetalert'
 
 class NewSession extends Component {
 
@@ -24,7 +25,9 @@ class NewSession extends Component {
             link: '',
             linkValidate: '',
             photo: '',
-            photoValidate: ''
+            photoValidate: '',
+            feature: 0,
+            featureValue: "Click To Feature"
         }
     }
 
@@ -45,19 +48,62 @@ class NewSession extends Component {
         event.target.name === 'pricing' ? this.setState({ pricingValidate: '' }) : '';
     }
 
+    onChangeFeature = () => {
+        if (this.state.feature == 1) {
+            this.setState({
+                feature: 0,
+                featureValue: "Click To Feature"
+            });
+        } else {
+            this.setState({
+                feature: 1,
+                featureValue: "Click To Remove From Feature"
+            });
+        }
+    }
+
+
+
+
+
     handleChange = (event) => {
         const value = event.target.name === 'photo'
             ? event.target.files[0]
             : event.target.value
 
-        event.target.name === 'photo' ? this.setState({ photoValidate: '' }) : '';
 
-        this.linkData.set(event.target.name, value)
-        this.setState({ photo: URL.createObjectURL(event.target.files[0]) });
+
+        var img = new Image;
+        img.src = URL.createObjectURL(event.target.files[0]);
+        img.uploadImage = this.uploadValidate
+        img.value = value
+
+        img.onload = function () {
+            var picWidth = this.width;
+            var picHeight = this.height;
+
+            if (picHeight == 300 && picWidth == 300) {
+                this.uploadImage(this.src, this.value)
+
+                
+            } else {
+                swal("IMAGE RESOLUTION(300x300)")
+            }
+
+           
+        }
+        event.target.name === 'photo' ? this.setState({ photoValidate: '' }) : '';
+    }
+
+    uploadValidate = (src, value) => {
+        this.linkData.set("photo", value)
+
+
+        this.setState({ photo: src });
     }
 
     onSubmit = () => {
-        if (this.state.title === '' || this.state.link === '' || this.linkData.get('photo') === null || this.state.limit === '' || this.state.start === '' || this.state.duration === '' || this.state.pricing === '' ) {
+        if (this.state.title === '' || this.state.link === '' || this.linkData.get('photo') === null || this.state.limit === '' || this.state.start === '' || this.state.duration === '' || this.state.pricing === '') {
             this.state.title === '' ? (this.setState({ titleValidate: 'ABOUT IS REQUIRED' })) : this.setState({ titleValidate: '' });
             this.state.pricing === '' ? (this.setState({ pricingValidate: 'PRICING IS REQUIRED' })) : this.setState({ pricingValidate: '' });
             this.state.link === '' ? (this.setState({ linkValidate: 'LINK IS REQUIRED' })) : this.setState({ linkValidate: '' });
@@ -72,6 +118,9 @@ class NewSession extends Component {
             this.linkData.set('start', this.state.start)
             this.linkData.set('duration', this.state.duration)
             this.linkData.set('pricing', this.state.pricing)
+            this.linkData.set('feature', this.state.feature)
+            this.linkData.set('join', 0)
+
 
             if (auth.isAuthenticated()) {
                 const jwt = auth.isAuthenticated();
@@ -162,10 +211,12 @@ class NewSession extends Component {
                                                 <strong>{this.state.photoValidate}</strong>
                                             </span>
                                             <div className="upload-info">
-                                                <a><label for="news_image"></label></a>
+                                                <a>(Image Resolution 300x300)<label for="news_image"></label></a>
                                                 <input name="photo" type="file" onChange={this.handleChange} />
                                             </div>
                                         </div>
+
+
 
                                         <span style={{ color: '#B22222' }}>
                                             <strong>{this.state.startValidate}</strong>
@@ -178,6 +229,12 @@ class NewSession extends Component {
                                                 <input type="datetime-local" name="start" value={this.state.start} onChange={this.onChangeInput} className="form-control" placeholder="Enter Start Time" />
                                             </div>
                                         </div>
+
+                                        <button onClick={this.onChangeFeature} className="btn btn-sm bg-pink waves-effect">{this.state.featureValue}<i className="fa fa-add"></i></button>
+                                        <span class="material-icons success">
+                                            {this.state.feature == 0 ? '' : 'check'}
+                                            </span>
+
 
                                         <span style={{ color: '#B22222' }}>
                                             <strong>{this.state.durationValidate}</strong>

@@ -39,6 +39,7 @@ class Content extends Component {
                 <td>{this.state.data.duration}</td>
                 <td>{this.state.data.join}</td>
                 <td>{this.state.data.pricing}</td>
+                <td>{this.state.data.feature == 1 ? 'Featured' : ''}</td>
                 <td>{moment(parseInt(this.state.data.created_date)).fromNow()}</td>
                 <td><a href="#unique-data" onClick={this.viewSession} className="btn btn-primary">View Session</a></td>
             </tr>
@@ -66,7 +67,7 @@ class Session extends Component {
                     alert(data.error)
                 } else {
                     this.setState({
-                        Session: data,
+                        Session: data.filter(el => moment(new Date(el.start)).add(el.start, 'minutes').isAfter(new Date) == true).reverse()
                     })
                 }
             });
@@ -112,7 +113,9 @@ class Session extends Component {
                                                 <th>Duartion</th>
                                                 <th>Join</th>
                                                 <th>Pricing</th>
+                                                <th>Featured</th>
                                                 <th>Created at</th>
+                                                <th>Operation</th>
                                             </tr>
                                         </thead>
                                         <tbody>
