@@ -44,11 +44,36 @@ class Instruct extends Component {
             ? event.target.files[0]
             : event.target.value
 
-        event.target.name === 'photo' ? this.setState({ photoValidate: '' }) : '';
+            var img = new Image;
+            img.src = URL.createObjectURL(event.target.files[0]);
+            img.uploadImage = this.uploadValidate
+            img.value = value
+    
+            img.onload = function () {
+                var picWidth = this.width;
+                var picHeight = this.height;
+    
+                if (picHeight == 300 && picWidth == 300) {
+                    this.uploadImage(this.src, this.value)
+    
+                    
+                } else {
+                    swal("IMAGE RESOLUTION(300x300)")
+                }
+    
+               
+            }
+            event.target.name === 'photo' ? this.setState({ photoValidate: '' }) : '';
+        }
+    
+        uploadValidate = (src, value) => {
+            this.linkData.set("photo", value)
+    
+    
+            this.setState({ photo: src });
+        }
 
-        this.linkData.set(event.target.name, value)
-        this.setState({ photo: URL.createObjectURL(event.target.files[0]) });
-    }
+
 
     onSubmit = () => {
         if (this.state.name === '' || this.state.profession === '' || this.linkData.get('photo') === null || this.state.about === '' || this.state.pricing === '') {
@@ -146,7 +171,7 @@ class Instruct extends Component {
                                                 <strong>{this.state.photoValidate}</strong>
                                             </span>
                                             <div className="upload-info">
-                                                <a><label for="news_image"></label></a>
+                                                <a>(Image Resolution 300x300)<label for="news_image"></label></a>
                                                 <input name="photo" type="file" onChange={this.handleChange} />
                                             </div>
                                         </div>
