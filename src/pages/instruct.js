@@ -3,6 +3,7 @@ import auth from './../auth/auth-helper';
 import Header from './../include/header'
 import Aside from './../include/sidebar'
 import { create } from './../api/api-instructor';
+import swal from 'sweetalert'
 
 class Instruct extends Component {
 
