@@ -6,7 +6,7 @@ import { read } from './../api/api-user';
 
 import auth from './../auth/auth-helper';
 
-class Profile extends Component {
+class Profile extends Component { 
 
     constructor(props) {
         super(props);

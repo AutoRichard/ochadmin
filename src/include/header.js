@@ -1,8 +1,30 @@
 import React, { Component } from 'react';
 import { signout } from './../auth/api-auth';
 import auth from './../auth/auth-helper';
+import { read } from './../api/api-user';
 
 class Header extends Component {
+
+
+    componentDidMount() {
+
+        let jwt, userId;
+
+        if (auth.isAuthenticated()) {
+            jwt = auth.isAuthenticated();
+            userId = jwt.user._id;
+            read({
+                userId: userId
+            }).then((data) => {
+                if (data.error) {
+                    this.signout()
+                }
+            });
+        }
+
+
+
+    }
 
 
     signout = () => {
